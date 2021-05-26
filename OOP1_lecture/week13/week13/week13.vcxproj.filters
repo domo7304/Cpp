@@ -27,5 +27,11 @@
     <ClCompile Include="prob4.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="prob5.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="prob6.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
