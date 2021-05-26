@@ -1,0 +1,8 @@
+Account   Last Name       First Name    Balance
+29        Brown           Nancy          -24.54
+33        Dunn            Stacey         314.00
+37        Barker          Doug             0.00
+42        WON             DO             100.15
+43        do              won            324.20
+88        Smith           Dave           258.34
+96        Stone           Sam             34.98
