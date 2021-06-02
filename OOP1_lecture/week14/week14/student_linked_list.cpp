@@ -4,12 +4,20 @@ using namespace std;
 // studetn node class 선언
 class StudentNode {
 private:
+	int id;
 	string name;
 	StudentNode* next;
 public:
-	StudentNode(const string name) {
+	StudentNode(const int id, const string name) {
+		this->id = id;
 		this->name = name;
 		this->next = NULL;
+	}
+	void setId(int id) {
+		this->id = id;
+	}
+	int getId() {
+		return id;
 	}
 	void setName(string name) {
 		this->name = name;
@@ -36,9 +44,21 @@ public:
 		head = NULL;
 		tail = NULL;
 	}
+
+	void addFront(int id, string str) {
+		StudentNode* v = new StudentNode(id, str);
+		if (head == NULL) {
+			head = tail = v;
+		}
+		else {
+			v->setNext(head);
+			head = v;
+		}
+	}
+
 	// str을 인자로 받으면 Student node 객체를 새로 만들어 tail에 연결
-	void addBack(string str) {
-		StudentNode* v = new StudentNode(str);
+	void addBack(int id, string str) {
+		StudentNode* v = new StudentNode(id, str);
 		if (head == NULL) {
 			head = tail = v;
 		}
@@ -52,14 +72,23 @@ public:
 	void print() {
 		StudentNode* cur = head;
 
-		if (cur == NULL) cout << "empty list" << '\n';
+		if (cur == NULL) cout << "empty list" << "\n\n";
 		else {
 			while (cur->getNext() != NULL) {
-				cout << cur->getName() << " ";
+				cout << cur->getId() << " " <<  cur->getName() << " ";
 				cur = cur->getNext();
 			}
-			cout << cur->getName() << '\n';
+			cout << cur->getId() << " " << cur->getName() << "\n\n";
 		}
+	}
+
+	void searchId(string str) {
+		StudentNode* cur = head;
+
+		while (cur != NULL && cur->getName() != str) cur = cur->getNext();
+		
+		if (cur == NULL) cout << "That string doesn't exist in this list" << "\n\n";
+		else cout << cur->getId() << " " << cur->getName() << "\n\n";
 	}
 };
 
@@ -69,11 +98,21 @@ int main() {
 	cout << "Before ad Student nodes : \n";
 	list.print();
 
-	list.addBack("Kim");
+	list.addBack(1, "Kim");
 	cout << "After add Student node 'Kim' : \n";
 	list.print();
 
-	list.addBack("Lee");
+	list.addBack(2, "Lee");
 	cout << "After add Student node 'Kim' : \n";
 	list.print();
+
+	list.addFront(3, "Park");
+	cout << "After add Student node 'Park' : \n";
+	list.print();
+
+	cout << "Search id of 'Lee' : ";
+	list.searchId("Lee");
+
+	cout << "Search id of node doesn't exist : ";
+	list.searchId("Choi");
 }
