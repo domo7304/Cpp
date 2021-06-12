@@ -15,6 +15,12 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="prob4.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="prob5.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="prob1.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -24,10 +30,16 @@
     <ClCompile Include="prob3.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="prob4.cpp">
+    <ClCompile Include="prob1_practice.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="prob5.cpp">
+    <ClCompile Include="prob2_practice.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="prob4_practice.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="prob5_practice.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

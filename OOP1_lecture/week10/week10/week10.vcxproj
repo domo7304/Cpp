@@ -140,11 +140,17 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="prob1.cpp" />
+    <ClCompile Include="prob1_practice.cpp" />
     <ClCompile Include="prob2.cpp" />
+    <ClCompile Include="prob2_practice.cpp" />
     <ClCompile Include="prob3.cpp" />
+    <ClCompile Include="prob3_practice.cpp" />
     <ClCompile Include="prob4.cpp" />
+    <ClCompile Include="prob4_practice.cpp" />
     <ClCompile Include="prob5.cpp" />
+    <ClCompile Include="prob5_practice.cpp" />
     <ClCompile Include="prob6.cpp" />
+    <ClCompile Include="prob6_practice.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
