@@ -33,5 +33,11 @@
     <ClCompile Include="prob6.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="prob1_practice.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="prob2_practice.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
