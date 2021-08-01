@@ -140,7 +140,9 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="prob1.cpp" />
+    <ClCompile Include="prob1_practice.cpp" />
     <ClCompile Include="prob2.cpp" />
+    <ClCompile Include="prob2_practice.cpp" />
     <ClCompile Include="prob3.cpp" />
     <ClCompile Include="prob4.cpp" />
     <ClCompile Include="prob5.cpp" />

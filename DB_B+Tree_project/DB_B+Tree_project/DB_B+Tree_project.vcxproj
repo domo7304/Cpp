@@ -140,12 +140,20 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="B+Tree.cpp" />
+    <ClCompile Include="for file ioo2.cpp" />
+    <ClCompile Include="niteshkumartiwari_B+Tree_merge.cpp" />
     <ClCompile Include="sample1.cpp" />
     <ClCompile Include="sample2.cpp" />
     <ClCompile Include="sample3%28깃허브판%29.cpp" />
     <ClCompile Include="sample3-1.%28블로그판%29.cpp" />
     <ClCompile Include="sample4.cpp" />
     <ClCompile Include="sample5.cpp" />
+    <ClCompile Include="insertion.cpp" />
+    <ClCompile Include="serch.cpp" />
+    <ClCompile Include="utilFunc.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="B+ Tree.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
