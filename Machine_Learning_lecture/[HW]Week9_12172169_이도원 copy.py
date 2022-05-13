@@ -1,7 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
-import time
 
 data = pd.read_csv('./ML_week9_data.csv')
 
@@ -9,22 +8,13 @@ class LinearRegression:
     def fit(self, X, Y):
         X = np.array(X).reshape(1, -1);
         Y = np.array(Y).reshape(1, -1);
-        x_shape = X.shape
-        num_var = x_shape[0]
-        self.weight = np.random.normal(0, 1, (num_var, 1))
-        self.bias = np.random.rand(1)
-        self.num_iteration = 50
+        
+        self.weight = np.array(np.cov(X, Y)[0][1] / np.var(X)).reshape(1, 1)
+        self.bias = np.mean(Y) - self.weight*np.mean(X)
 
-        for t in range(self.num_iteration):
-            N = x_shape[1]
-            self.delta_W = 2/N * (np.sum(np.multiply(((np.matmul(self.weight, X) + self.bias) - Y), X)))
-            self.delta_bias = 2/N * (np.sum(((np.matmul(self.weight, X) + self.bias) - Y)))
-            self.weight -= 0.1 * self.delta_W
-            self.bias -= 0.1 * self.delta_bias
         return self.weight, self.bias
 
     def predict(self, X):
-        print(self.weight)
         product = np.matmul(self.weight, np.array(X).reshape(1, -1)) + self.bias
         return product.reshape(-1)
 
@@ -44,7 +34,7 @@ pred = reg.predict(np.array(x[-180:]))
 
 plt.scatter(x[-180:], y[-180:])
 plt.plot(x[-180:], pred, 'red')
-#plt.text(0.35, 0.08, 'gradient, min-max, iteration: 50')
-#plt.savefig('gradient_min-max_iteration_50.png')
-plt.text(-0.65, -2.6, 'gradient, Z-score, iteration: 50')
-#plt.savefig('gradient_Z-score_iteration_50.png')
+plt.text(0.25, -2.6, 'MLE, Z-score')
+#plt.savefig('MLE, Z-score.png')
+#plt.text(0.5, 0.08, 'MLE, min-max')
+#plt.savefig('MLE, min-max')
