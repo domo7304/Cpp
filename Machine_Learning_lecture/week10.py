@@ -1,3 +1,4 @@
+from unittest import result
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -38,7 +39,7 @@ class LogisticRegression:
         delta_w = (1/N) * np.matmul(X.T, (y_hat-y))
         delta_b = (1/N) * np.sum(y_hat-y)
         grads = {"delta_w" : delta_w, "delta_b" : delta_b}
-        return grads # 중요한 건 x, 그냥 깔끔하게 return 하려고 dictionary 로 return
+        return grads
 
     # grads, cost 한 번에 계산
     def gradient_position(self, w, b, X, y):
@@ -63,19 +64,34 @@ class LogisticRegression:
             # weight, bias 업데이트
             w = w - (self.learning_rate * delta_w)
             b = b - (self.learning_rate * delta_b)
-
-            # 그냥 100번 돌 때마다 cost 를 출력하는 거
             if i % 100 == 0:
                 costs.append(cost)
 
             if print_cost and i % 100 == 0:
                 print("Cost after iteration % i : % f" %(i, cost))
             
-            # 그냥 저장
             params = {"w" : w, "b" : b}
             grads = {"delta_w" : delta_w, "delta_b" : delta_b}
 
         return params, costs
+
+    def predict(self, X):
+        X = np.array(X)
+        N = X.shape[0]
+
+        Y_prediction = np.zeros(N)
+
+        w = self.w.reshape(X.shape[1], 1)
+        b = self.b
+
+        y_hat = self.hypothesis(w, X, b)
+
+        for i in range(len(y_hat)):
+            if y_hat[i] >= 0.5:
+                Y_prediction[i] = 1
+            else:
+                Y_prediction[i] = 0
+        return Y_prediction
 
     def train_model(self, X_train, Y_train, X_test, Y_test, print_cost = False):
         dim = np.shape(X_train)[1]
@@ -92,10 +108,9 @@ class LogisticRegression:
         test_score = 100 - np.mean(np.abs(Y_prediction_test - Y_test)) * 100
         print("test accuracy : {} %" .format(100 - np.mean(np.abs(Y_prediction_test - Y_test)) * 100))
 
-        # 이것도 그냥 저장용
-        result_dict = {"costs": costs,
-                    "Y_prediction_test": Y_prediction_test,
-                    "Y_prediction_train": Y_prediction_train,
+        result_dict = {#"costs": costs,
+                    #"Y_prediction_test": Y_prediction_test,
+                    #"Y_prediction_train": Y_prediction_train,
                     "w": self.w,
                     "b": self.b,
                     "learning_rate": self.learning_rate,
@@ -119,7 +134,6 @@ Y_train = Y[:train_number]
 X_test = X[train_number:, :]
 Y_test = Y[train_number:]
 
-plt.scatter(X_train[Y_train==0][:, 0], X_train[Y_train==0][:, 1], color='red')
-plt.scatter(X_train[Y_train==1][:, 0], X_train[Y_train==1][:, 1], color='green')
-plt.show()
-plt.close() 
+LC_cls = LogisticRegression()
+result_dict = LC_cls.train_model(X_train, Y_train, X_test, Y_test)
+print(result_dict)
